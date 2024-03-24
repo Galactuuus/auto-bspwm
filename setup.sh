@@ -58,7 +58,7 @@ else
 
 	echo -e "\n${blueColour}[*] Installing pywal...\n${endColour}"
 	sleep 2
-	sudo pip3 install pywal
+	sudo /home/galactuuus/Desktop/PyENV/bin/./pip3 install pywal
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install pywal or operation cancelled by user!\n${endColour}"
 		exit 1
@@ -180,6 +180,7 @@ else
 	sleep 2
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	usermod --shell /usr/bin/zsh galactuuus
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install Oh My Zsh and Powerlevel10k for user $user!\n${endColour}"
 		exit 1
@@ -192,6 +193,7 @@ else
 	sleep 2
 	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 	sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
+	usermod --shell /usr/bin/zsh root
 	if [ $? != 0 ] && [ $? != 130 ]; then
 		echo -e "\n${redColour}[-] Failed to install Oh My Zsh and Powerlevel10k for user root!\n${endColour}"
 		exit 1
@@ -236,9 +238,9 @@ else
 	echo -e "\n${purpleColour}[*] Configuring the .zshrc and .p10k.zsh files...\n${endColour}"
 	sleep 2
 	cp -v $dir/.zshrc ~/.zshrc
-	sudo ln -sfv ~/.zshrc /root/.zshrc
+	sudo ln -s -f ~/.zshrc /root/.zshrc
 	cp -v $dir/.p10k.zsh ~/.p10k.zsh
-	sudo ln -sfv ~/.p10k.zsh /root/.p10k.zsh
+	sudo ln -s -f ~/.p10k.zsh /root/.p10k.zsh
 	echo -e "\n${greenColour}[+] Done\n${endColour}"
 	sleep 1.5
 

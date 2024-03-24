@@ -94,6 +94,8 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
+export PATH=/.local/bin:/snap/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
